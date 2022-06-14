@@ -23,6 +23,9 @@ Route::post('post-login', [AuthController::class, 'loginPostAdmin'])->name('logi
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
 Route::post('/AddPostProf', [AuthController::class,'AddPostProf'])->name("AddPostProf");
 Route::post('/AddPostStudent', [AuthController::class,'AddPostStudent'])->name("AddPostStudent");
+Route::post('/AddPostFiliere', [AuthController::class,'AddPostFiliere'])->name("AddPostFiliere");
+Route::post('/AddPostModule', [AuthController::class,'AddPostModule'])->name("AddPostModule");
+Route::post('/loginPostProf', [AuthController::class,'loginPostProf'])->name("loginPostProf");
 
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
 

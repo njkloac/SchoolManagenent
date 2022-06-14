@@ -24,11 +24,11 @@
 
                           <div class="form-group row">
 
-                              <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                              <label for="login" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                               <div class="col-md-6">
 
-                                  <input type="text" id="email_address" class="form-control" name="email" required autofocus>
+                                  <input type="text" id="login" class="form-control" name="login" required autofocus>
 
                                   @if ($errors->has('email'))
 

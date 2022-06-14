@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 
 use App\Models\User;
+use App\Models\Filiere;
+use App\Models\Eleve;
+use App\Models\Module;
 use App\Models\Prof;
 
 use Hash;
@@ -54,10 +57,26 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string'],
         ]);
-        $Owner=User::where('email',$fields['email'])->first();
-            if($Owner && $fields['password']==$Owner->password){
+        $Owner=User::where('login',$fields['login'])->first();
+            if($Owner && $fields['password']==$Owner->password  && $Owner->type=='Admin'){
                  //send response
                 return view('layoutAdmin');
+            }else{
+                return redirect("login");
+            }
+        
+    }
+
+    public function loginPostProf(Request $request)
+    {
+        $fields=$request->validate([
+            'login' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string'],
+        ]);
+        $Owner=User::where('login',$fields['login'])->first();
+            if($Owner && $fields['password']==$Owner->password && $Owner->type=='Prof'){
+                 //send response
+                return view('layoutProf');
             }else{
                 return redirect("login");
             }
@@ -96,12 +115,92 @@ class AuthController extends Controller
         
         return view('AddProf');
     }
-      
+    
 
     public function AddStudent()
     {
         return view('AddStudent');
     }
+
+    public function AddPostStudent(Request $request)
+    {
+        $fields=$request->validate([
+            'code' => 'required',
+            'nom' => 'required',
+            'prenom' => 'required',
+            'niveau' => 'required',
+            'code_fil' => 'required',
+            'login' => 'required',
+            'password' => 'required',
+        ]);
+        $request->request->add(['type'=> 'Student']);// in order to add the user type
+        $owner= User::create([
+            'login'=>$request->login,
+            'password'=>$request->password,
+            'type'=>$request->type,
+        ]);
+        Eleve::create([
+            'code'=>$request->code,
+            'nom'=>$request->nom,
+            'prenom'=>$request->prenom,
+            'niveau'=>$request->niveau,
+            'code_fil'=>$request->code_fil,
+            'login'=>$owner->id,
+        ]);
+        
+        return view('AddStudent');
+    }
+    
+   
+
+    public function AddFiliere()
+    {
+        return view('AddFiliere');
+    }
+    
+   
+
+    public function AddModule()
+    {
+        return view('AddModule');
+    }
+
+    public function AddPostFiliere(Request $request)
+    {
+        $fields=$request->validate([
+            'code' => 'required',
+            'designation' => 'required',
+            'responsable' => 'required',
+        ]);
+        $owner= Filiere::create([
+            'code'=>$request->code,
+            'designation'=>$request->designation,
+            'responsable'=>$request->responsable,
+        ]);
+        
+        return view('AddFiliere');
+    }
+
+    public function AddPostModule(Request $request)
+    {
+        $fields=$request->validate([
+            'code' => 'required',
+            'designation' => 'required',
+            'niveau' => 'required',
+            'semestre' => 'required',
+            'code_fil' => 'required',
+        ]);
+        $owner= Module::create([
+            'code'=>$request->code,
+            'designation'=>$request->designation,
+            'niveau'=>$request->niveau,
+            'semestre'=>$request->semestre,
+            'code_fil'=>$request->code_fil,
+        ]);
+        
+        return view('AddModule');
+    }
+   
 
     
     public function loginProf()
