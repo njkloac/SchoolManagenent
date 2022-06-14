@@ -16,4 +16,7 @@ class Module extends Model
         'semestre',
         'code_fil',
     ];
+    public function filiere(){
+        return $this->belongsTo(Filiere::class,'code_fil');
+    }
 }

@@ -100,7 +100,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand" href="#">Admin space</a>
+        <a class="navbar-brand" href="#">Prof space</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -132,9 +132,9 @@
 
             </ul>
 
-  
 
         </div>
+        
 
     </div>
 
@@ -144,7 +144,6 @@
 
 @yield('content')
 
-     
 
 </body>
 

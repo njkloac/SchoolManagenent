@@ -14,4 +14,10 @@ class Filiere extends Model
         'designation',
         'responsable',
     ];
+    public function eleve(){
+        return $this->hasMany(Eleve::class);
+    }
+    public function modules(){
+        return $this->hasMany(Module::class);
+    }
 }

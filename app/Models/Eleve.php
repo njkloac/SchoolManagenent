@@ -17,4 +17,7 @@ class Eleve extends Model
         'code_fil',
         'login',
     ];
+    public function filiere(){
+        return $this->belongsTo(Filiere::class,'code_fil');
+    }
 }

@@ -54,7 +54,7 @@ class AuthController extends Controller
     public function loginPostAdmin(Request $request)
     {
         $fields=$request->validate([
-            'email' => ['required', 'string', 'max:255'],
+            'login' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string'],
         ]);
         $Owner=User::where('login',$fields['login'])->first();
@@ -62,7 +62,7 @@ class AuthController extends Controller
                  //send response
                 return view('layoutAdmin');
             }else{
-                return redirect("login");
+                return redirect("loginAdmin");
             }
         
     }
@@ -76,11 +76,37 @@ class AuthController extends Controller
         $Owner=User::where('login',$fields['login'])->first();
             if($Owner && $fields['password']==$Owner->password && $Owner->type=='Prof'){
                  //send response
-                return view('layoutProf');
+                 $students=Eleve::all();
+                return view('indexProf', ['students' => $students]);
             }else{
                 return redirect("login");
             }
         
+    }
+
+    public function loginPostStudent(Request $request)
+    {
+        $fields=$request->validate([
+            'login' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string'],
+        ]);
+        $Owner=User::where('login',$fields['login'])->first();
+            if($Owner && $fields['password']==$Owner->password && $Owner->type=='Student'){
+                 //send response
+                $notes=Note::where('code_eleve',$Owner->code);
+                return view('indexStudent',['notes' => $notes]);
+            }else{
+                return redirect("login");
+            }
+        
+    }
+
+    public function AddNote($id)
+    {
+        $eleve=Eleve::where('code',$id)->first();
+        $filiere=Filiere::where('code',$eleve->code_fil)->first();
+        $modules=Module::where('code_fil',$filiere->code)->get();
+        return view('AddStudentNote',['modules'=>$modules]);
     }
     
 
