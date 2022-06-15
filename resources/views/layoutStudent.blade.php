@@ -100,7 +100,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand" href="#">Admin space</a>
+        <a class="navbar-brand" href="#">Student space</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -115,26 +115,6 @@
             <ul class="navbar-nav ml-auto">
 
                
-                <li class="nav-item">
-
-                    <a class="nav-link" href="{{ route('AddProf') }}">Register Professor</a>
-
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link" href="{{ route('AddStudent') }}">Register Student</a>
-
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link" href="{{ route('AddFiliere') }}">Ajouter filiere</a>
-
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link" href="{{ route('AddModule') }}">Ajouter Module</a>
-
-                </li>
 
 
 
@@ -147,9 +127,9 @@
 
             </ul>
 
-  
 
         </div>
+        
 
     </div>
 
@@ -159,7 +139,6 @@
 
 @yield('content')
 
-     
 
 </body>
 

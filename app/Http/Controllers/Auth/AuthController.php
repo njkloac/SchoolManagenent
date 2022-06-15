@@ -93,7 +93,7 @@ class AuthController extends Controller
         $Owner=User::where('login',$fields['login'])->first();
             if($Owner && $fields['password']==$Owner->password && $Owner->type=='Student'){
                  //send response
-                $notes=Note::where('code_eleve',$Owner->code);
+                $notes=Eleve::where('code_eleve',$Owner->code);
                 return view('indexStudent',['notes' => $notes]);
             }else{
                 return redirect("login");
@@ -106,7 +106,7 @@ class AuthController extends Controller
         $eleve=Eleve::where('code',$id)->first();
         $filiere=Filiere::where('code',$eleve->code_fil)->first();
         $modules=Module::where('code_fil',$filiere->code)->get();
-        return view('AddStudentNote',['modules'=>$modules]);
+        return view('AddStudentNote',['modules'=>$modules]); 
     }
     
 
@@ -480,16 +480,14 @@ class AuthController extends Controller
 
      */
 
-    public function logout() {
+    // public function logout() {
 
-        Session::flush();
+    //     Session::flush();
 
-        Auth::logout();
+    //     Auth::logout();
 
-  
+    //     return Redirect('logout');
 
-        return Redirect('login');
-
-    }
+    // }
 
 }

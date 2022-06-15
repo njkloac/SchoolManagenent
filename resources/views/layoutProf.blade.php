@@ -4,7 +4,7 @@
 
 <head>
 
-    <title>Laravel - ItSolutionStuff.com</title>
+    <title>Laravel </title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -125,7 +125,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                        <a class="nav-link" href="{{ route('login') }}">Logout</a>
 
                     </li>
 

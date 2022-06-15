@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
   
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::get('/login', [AuthController::class,'logout'])->name("logout");
 
 Route::get('/loginAdmin', [AuthController::class,'loginAdmin'])->name("loginAdmin");
 Route::get('/loginProf', [AuthController::class,'loginProf'])->name("loginProf");
@@ -37,4 +38,4 @@ Route::get('dashboardAdmin', [AuthController::class, 'dashboardAdmin']);
 
 
 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

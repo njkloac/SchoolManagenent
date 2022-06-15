@@ -12,7 +12,7 @@
 
         <div class="card">
 
-            <div class="card-header">Add Prof</div>
+            <div class="card-header">Add Note</div>
 
             <div class="card-body">
 
@@ -24,11 +24,11 @@
 
 <div class="form-group row">
 
-    <label for="nom" class="col-md-4 col-form-label text-md-right">Nom</label>
+    <label for="code_eleve" class="col-md-4 col-form-label text-md-right">code_eleve</label>
 
     <div class="col-md-6">
 
-        <input type="text" id="nom" class="form-control" name="nom" required autofocus>
+        <input type="text" id="code_eleve" class="form-control" name="code_eleve" required autofocus>
 
       
 
@@ -40,11 +40,11 @@
 
 <div class="form-group row">
 
-    <label for="prenom" class="col-md-4 col-form-label text-md-right">prenom</label>
+    <label for="code_elm" class="col-md-4 col-form-label text-md-right">code_elm</label>
 
     <div class="col-md-6">
 
-        <input type="prenom" id="prenom" class="form-control" name="prenom" required>
+        <input type="code_elm" id="code_elm" class="form-control" name="code_elm" required>
 
 
     </div>
@@ -55,11 +55,11 @@
 
 <div class="form-group row">
 
-    <label for="departement" class="col-md-4 col-form-label text-md-right">departement</label>
+    <label for="module" class="col-md-4 col-form-label text-md-right">module</label>
 
     <div class="col-md-6">
 
-        <input type="departement" id="departement" class="form-control" name="departement" required>
+        <input type="module" id="module" class="form-control" name="module" required>
 
   
 
@@ -71,11 +71,11 @@
 
 <div class="form-group row">
 
-    <label for="login" class="col-md-4 col-form-label text-md-right">login</label>
+    <label for="note" class="col-md-4 col-form-label text-md-right">note</label>
 
     <div class="col-md-6">
 
-        <input type="login" id="login" class="form-control" name="login" required>
+        <input type="note" id="note" class="form-control" name="note" required>
 
        
 
@@ -84,19 +84,7 @@
 </div>
 
 
-<div class="form-group row">
 
-    <label for="password" class="col-md-4 col-form-label text-md-right">password</label>
-
-    <div class="col-md-6">
-
-        <input type="password" id="password" class="form-control" name="password" required>
-
-       
-
-    </div>
-
-</div>
 
 
 
